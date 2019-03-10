@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fda2d2609f69e4b8d85310508e811b, type: 3}
+  m_Name: Start menu2
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 1456665752238596, guid: eadc4304990b19945a70b49ea9b9e133,
+    type: 2}
+  pathPrefab: {fileID: 1669731084839994, guid: 510eeab5735c3ea4298df7538a76fb59, type: 2}
+  timeBetweenSpawns: 0.5
+  spawnRandomFactor: 0.3
+  numberOfEnemies: 4
+  moveSpeed: 5
+  time_to_next_spawn_after_start: 6
