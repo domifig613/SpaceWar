@@ -297,6 +297,10 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1161649349809900, guid: 3b6df755b71a20e499a7b12c89667d15, type: 2}
+      propertyPath: m_TagString
+      value: Canvas
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b6df755b71a20e499a7b12c89667d15, type: 2}
   m_IsPrefabAsset: 0
