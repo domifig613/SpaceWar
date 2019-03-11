@@ -130,6 +130,7 @@ MonoBehaviour:
   maxTimeBetweenShots: 2
   laser: {fileID: 1038002437768048, guid: 6e79206f7aecc2a48908ce538d001907, type: 2}
   Padding: 0.5
+  pointsForKill: 20
 --- !u!114 &114402976728545222
 MonoBehaviour:
   m_ObjectHideFlags: 1

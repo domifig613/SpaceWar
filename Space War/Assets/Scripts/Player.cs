@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
     //config parameters
@@ -13,9 +13,11 @@ public class Player : MonoBehaviour {
     [Header("Projectile")]
     [SerializeField] float Padding = 0.5f;
     [SerializeField] float yMaxHigh = 0.4f;
+    [SerializeField] float yMinHigh = 0.99f;
     [SerializeField] GameObject laser;
+    int fullHealth;
 
-     
+    public Image healthBar;
 
     bool isDelay = false;
     float xMin;
@@ -28,6 +30,9 @@ public class Player : MonoBehaviour {
     void Start () {
         SetUpMoveBoundaries();
         healPlayer = gameObject.GetComponent<Health>();
+        fullHealth = healPlayer.getHealth();
+        healthBar.fillAmount = 1;
+       
     }
 
     private void SetUpMoveBoundaries()
@@ -35,7 +40,7 @@ public class Player : MonoBehaviour {
         Camera gameCamera = Camera.main;
         xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x        + Padding;
         xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x        - Padding;
-        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y        + Padding;
+        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y        + Padding+yMinHigh;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, yMaxHigh, 0)).y - Padding;
     }
 
@@ -99,7 +104,17 @@ public class Player : MonoBehaviour {
             return;
         }
         healPlayer.HealthDown(damageDealer.GetDamage()); //space ship get damage
-        healPlayer.IsAliveNow();                         //check isAlive  space ship?
+        healPlayer.IsAliveNow(0);                         //check isAlive  space ship?
         damageDealer.Hit();
+        SpaceBarHealth();
+    }
+
+    private void SpaceBarHealth()
+    {
+        healthBar.fillAmount = (float)healPlayer.getHealth() / (float)fullHealth;
+        if (healthBar.fillAmount < 0.05 && healPlayer.getAlive())
+        {
+            healthBar.fillAmount = 0.05f;
+        }
     }
 }

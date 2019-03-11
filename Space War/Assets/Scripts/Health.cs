@@ -8,11 +8,13 @@ public class Health : MonoBehaviour {
     [SerializeField] AudioClip deathSound;
 
     DeadAnimation deadAnim;
-
+    Points points;
     bool IsAlive = true;
 
     void Start()
     {
+        points= FindObjectOfType<Points>();
+
         deadAnim = gameObject.GetComponent<DeadAnimation>();
     }
   
@@ -33,7 +35,7 @@ public class Health : MonoBehaviour {
         IsAlive = isAlive_;
     }
 
-   public void IsAliveNow()
+   public void IsAliveNow(int pointsForKill)
     {
         if (getHealth() <= 0 && getAlive())
         {
@@ -44,6 +46,10 @@ public class Health : MonoBehaviour {
             if (gameObject.name == "Player")
             {
                 FindObjectOfType<Scene_Manager>().LoadGameOver();
+            }
+            else
+            {
+                points.AddScore(pointsForKill);
             }
             
         }

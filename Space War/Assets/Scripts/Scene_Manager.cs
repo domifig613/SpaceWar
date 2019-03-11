@@ -20,10 +20,15 @@ public class Scene_Manager : MonoBehaviour {
     {
         Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + 20, Camera.main.transform.position.y, Camera.main.transform.position.z);
         GameObject[] canvas = GameObject.FindGameObjectsWithTag("Canvas");
-        foreach(GameObject canva in canvas)
+        foreach (GameObject canva in canvas)
         {
             canva.SetActive(false);
         }
+        Points p = FindObjectOfType<Points>();
+        if (p) {
+            p.ResetGame();
+        }
+
         SceneManager.LoadScene("Game");
     }
 

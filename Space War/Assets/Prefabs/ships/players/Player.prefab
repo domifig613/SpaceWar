@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cead22d4686a74db5fa0d8b3bfb329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 300
   deathSound: {fileID: 8300000, guid: bd554771872794c498c2a29df40ea45a, type: 3}
 --- !u!114 &114466074193094864
 MonoBehaviour:
@@ -151,7 +151,9 @@ MonoBehaviour:
   howFastVertial: 15
   Padding: 0.5
   yMaxHigh: 0.4
+  yMinHigh: 0.99
   laser: {fileID: 1939865244752120, guid: bf14db7d9565ea147bbec11cf09ef2d5, type: 2}
+  healthBar: {fileID: 0}
 --- !u!114 &114719495795837926
 MonoBehaviour:
   m_ObjectHideFlags: 1
