@@ -9,7 +9,6 @@ public class EnemyMove : MonoBehaviour {
 
     int waypoints_index=0;
 
-    bool Alive = true;
     Health health;
 	// Use this for initialization
 	void Start () {
@@ -22,7 +21,6 @@ public class EnemyMove : MonoBehaviour {
 	void Update ()
     {
         Move();
-        checkAlive();
     }
 
     public void SetWaveConfig(WaveConfig waveConfig)
@@ -34,8 +32,6 @@ public class EnemyMove : MonoBehaviour {
     {
         if (waypoints_index <= waypoints.Count - 1)
         {
-            if (Alive)
-            {
                 var targetPosition = waypoints[waypoints_index].transform.position;
                 var movementThisFrame = waveConfig.GetMoveSpeed() * Time.deltaTime;
                 transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
@@ -44,15 +40,11 @@ public class EnemyMove : MonoBehaviour {
                 {
                     waypoints_index++;
                 }
-            }
+            
         }
         else
         {
             Destroy(gameObject);
         }
-    }
-    void checkAlive()
-    {
-        Alive = health.getAlive();
     }
 }

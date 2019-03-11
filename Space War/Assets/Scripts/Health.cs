@@ -40,7 +40,7 @@ public class Health : MonoBehaviour {
         if (getHealth() <= 0 && getAlive())
         {
             AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, (UnityEngine.Random.Range(1, 100) / 100f));
-            IsAlive = false;
+           
             deadAnim.RunDeadAnimation();
             Destroy(gameObject, 1f);
             if (gameObject.name == "Player")
@@ -51,7 +51,8 @@ public class Health : MonoBehaviour {
             {
                 points.AddScore(pointsForKill);
             }
-            
+            IsAlive = false;
+
         }
     }
 
