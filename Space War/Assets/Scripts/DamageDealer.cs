@@ -6,7 +6,22 @@ public class DamageDealer : MonoBehaviour {
 
     [SerializeField] int damage = 100;
     [SerializeField] int random_plus_minus_damage = 10;
+    string[] laserTabel= { "LaserOrange1(Clone)", "LaserYellow1(Clone)", "LaserYellow2(Clone)", "LaserPurple1(Clone)", "LaserYellow3(Clone)" }; //laser destroyed if hit
 
+    void Start()
+    {
+        foreach (string laser in laserTabel)
+        {
+            if (laser == gameObject.name)
+            {
+                destroy = true;
+                break;
+            }
+        }
+    }
+
+
+    bool destroy = false;
     public int GetDamage()
     {
         int random_damage = UnityEngine.Random.Range(-random_plus_minus_damage, random_plus_minus_damage + 1);
@@ -15,7 +30,7 @@ public class DamageDealer : MonoBehaviour {
 
     public void Hit()
     {
-        if (gameObject.name == "LaserGreen1(Clone)" || gameObject.name == "LaserOrange1(Clone)")
+        if (destroy)
         {
             Destroy(gameObject);
         }

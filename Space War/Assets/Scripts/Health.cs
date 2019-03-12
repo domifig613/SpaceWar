@@ -43,7 +43,7 @@ public class Health : MonoBehaviour {
            
             deadAnim.RunDeadAnimation();
             Destroy(gameObject, 1f);
-            if (gameObject.name == "Player")
+            if (gameObject.name == "AssassinShip"|| gameObject.name == "sniper"||gameObject.name== "scout"||gameObject.name =="warShip")
             {
                 FindObjectOfType<Scene_Manager>().LoadGameOver();
             }
