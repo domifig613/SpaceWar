@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936123ee9be46644ba9dbd1b1db52eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotCounter: 0
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 2
   laser: {fileID: 1038002437768048, guid: 38aae27718a4acb4f87ea6ea2de079d8, type: 2}
@@ -199,8 +198,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1152134415
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ad691916a38ee004ead141cba757f58f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fda2d2609f69e4b8d85310508e811b, type: 3}
+  m_Name: WaveUfo2
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 1659341749616068, guid: f6d2c497c8163554180d8b33959ac0ae,
+    type: 2}
+  pathPrefab: {fileID: 1871414704153438, guid: 54b86c1b80c95cc4ca47b90f6246e5b4, type: 2}
+  timeBetweenSpawns: 0.75
+  spawnRandomFactor: 0.3
+  numberOfEnemies: 1
+  moveSpeed: 8
+  time_to_next_spawn_after_start: 10
+  waveControl: 1
+  ReturnWaipoint: 0

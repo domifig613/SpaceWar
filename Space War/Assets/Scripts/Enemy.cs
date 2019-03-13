@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField] float shotCounter;                //* for shot
+    float shotCounter;                //* for shot
     [SerializeField] float minTimeBetweenShots = 0.2f;//*
     [SerializeField] float maxTimeBetweenShots = 3f; //*
     [SerializeField] GameObject laser;
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (healthScript.getAlive() && transform.position.x > xMin && transform.position.x < xMax)
+        if (laser && healthScript.getAlive() && transform.position.x > xMin && transform.position.x < xMax)
         {
             CountDownAndShoot();
         }

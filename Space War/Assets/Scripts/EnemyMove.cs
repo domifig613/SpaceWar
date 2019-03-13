@@ -8,6 +8,7 @@ public class EnemyMove : MonoBehaviour {
     List<Transform> waypoints;
 
     int waypoints_index=0;
+    bool moveControl = true;
 
     Health health;
 	// Use this for initialization
@@ -20,7 +21,10 @@ public class EnemyMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Move();
+        if (moveControl)
+        {
+            Move();
+        }
     }
 
     public void SetWaveConfig(WaveConfig waveConfig)
@@ -42,9 +46,28 @@ public class EnemyMove : MonoBehaviour {
                 }
             
         }
-        else
+        else if (waveConfig.GetWaveControler() == 3)
+        {
+            var targetPosition = waypoints[waveConfig.GetPointToLoopingMove()].transform.position;
+            if (transform.position != targetPosition)
+            {
+                var movementThisFrame = waveConfig.GetMoveSpeed() * Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
+            }
+            else
+            {
+                waypoints_index = waveConfig.GetPointToLoopingMove() + 1;
+            }
+        }
+        else if(waveConfig.GetWaveControler()==1)
         {
             Destroy(gameObject);
         }
+        else if (waveConfig.GetWaveControler() == 2)
+        {
+            moveControl = false;
+        }
+   
+
     }
 }

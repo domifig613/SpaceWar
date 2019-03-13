@@ -12,7 +12,14 @@ public class EnemySpawner : MonoBehaviour
 
 
     // Use this for initialization
-    IEnumerator Start()
+    void Start()
+    {
+        if (gameObject.GetComponent<UFO_spawner>() == null) {
+            StartCoroutine(SpawnEnemy());
+        }
+    }
+
+    public IEnumerator SpawnEnemy()
     {
         do
         {
@@ -26,6 +33,7 @@ public class EnemySpawner : MonoBehaviour
         for(int waveIndex=startingWave; waveIndex < waveConfigs.Count; waveIndex++)
         {
             var currentWave = waveConfigs[waveIndex];
+        
             StartCoroutine(SpawnAllEnemiesInWave(currentWave));
             yield return new WaitForSeconds(currentWave.GetTimeToNextWave());
         }
@@ -38,8 +46,28 @@ public class EnemySpawner : MonoBehaviour
             newEnemy.GetComponent<EnemyMove>().SetWaveConfig(waveConfig);
           
             yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
-            
         }
+    }
+    public void SpawnOneWave(WaveConfig waveConfig)
+    {
+        for (int enemyCount = 0; enemyCount < waveConfig.GetNumberOfEnemies(); enemyCount++)
+        {
+            var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWaypoints()[0].transform.position, Quaternion.identity);
+            newEnemy.GetComponent<EnemyMove>().SetWaveConfig(waveConfig);
+        }
+    }
+    public void setStartingWave(int control)
+    {
+        startingWave = control;
+    }
+
+    public WaveConfig getActualWave()
+    {
+        return waveConfigs[startingWave];
+    }
+    public int getLenghtOfListWave()
+    {
+        return waveConfigs.Count;
     }
 }
 

@@ -55,11 +55,11 @@ TagManager:
   - name: Background
     uniqueID: 1947543829
     locked: 0
-  - name: Planets
-    uniqueID: 4094135763
-    locked: 0
   - name: Projectile
     uniqueID: 1111697911
+    locked: 0
+  - name: Planets
+    uniqueID: 4094135763
     locked: 0
   - name: Enemy
     uniqueID: 1152134415

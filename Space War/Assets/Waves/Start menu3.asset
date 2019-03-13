@@ -19,3 +19,5 @@ MonoBehaviour:
   numberOfEnemies: 1
   moveSpeed: 5
   time_to_next_spawn_after_start: 6
+  waveControl: 1
+  ReturnWaipoint: 0

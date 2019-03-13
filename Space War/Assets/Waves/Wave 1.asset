@@ -17,5 +17,7 @@ MonoBehaviour:
   timeBetweenSpawns: 0.75
   spawnRandomFactor: 0.3
   numberOfEnemies: 10
-  moveSpeed: 4
-  time_to_next_spawn_after_start: 10
+  moveSpeed: 10
+  time_to_next_spawn_after_start: 20
+  waveControl: 1
+  ReturnWaipoint: 0

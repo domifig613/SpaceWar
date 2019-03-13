@@ -12,9 +12,12 @@ public class WaveConfig : ScriptableObject {
     [SerializeField] int numberOfEnemies = 10;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float time_to_next_spawn_after_start = 3f;
-
- 
-
+    [SerializeField] int waveControl; //1=destroy if last wave point, 2 = stop in last wavePoint, 3 = loopingInSomePoint
+    [SerializeField] int ReturnWaipoint;
+    public void SetEnemyPrefab(GameObject enemy)
+    {
+        enemyPrefab = enemy;
+    }
     public GameObject GetEnemyPrefab(){return enemyPrefab;}     //get 6 first serializefield
     public List<Transform> GetWaypoints()
     {
@@ -31,7 +34,8 @@ public class WaveConfig : ScriptableObject {
     public int GetNumberOfEnemies() { return numberOfEnemies; }
     public float GetMoveSpeed() { return moveSpeed; }
     public float GetTimeToNextWave() { return time_to_next_spawn_after_start; }
-
+    public int GetWaveControler() { return waveControl; }
+    public int GetPointToLoopingMove() { return ReturnWaipoint; }
 
 
 
